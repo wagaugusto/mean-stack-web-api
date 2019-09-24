@@ -6,7 +6,7 @@ var roupaService = require('services/roupa.service');
 // routes
 router.post('/register', registerRoupa);
 router.get('/:_id', getCurrentRoupa);
-router.get('/all', getAllRoupa);
+router.get('/', getAllRoupa);
 router.put('/:_id', updateRoupa);
 router.delete('/:_id', deleteRoupa);
 
@@ -36,7 +36,7 @@ function getCurrentRoupa(req, res) {
         });
 }
 
-function getAllRoupa(res) {
+function getAllRoupa(req, res) {
     roupaService.getAll()
         .then(function (roupas) {
             if (roupas) {
